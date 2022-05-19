@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Django Forms</title>
+    <style>
+    * {margin: 0; padding: 0;box-sizing: border-box;}
+
+    body {background: lightblue;font-family: "Roboto"; sans-serif; font-size: 20px;line-height: 1.2; width: 100%; display: flex; justify-content: center; align-items: center;}
+
+    .container {margin-top: 100px; width: 100%; max-width: 500px; padding: 0 20px;}
+
+    .content {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  background: #fff;
+  padding: 40px;
+  border-radius: 5px;
+  box-shadow: 4px 4px 8px 0 rgba(34, 60, 80, 0.2);
+}
+.input-box {
+  height: 50px;
+  width: 100%;
+  margin-bottom: 30px;
+}
+input {
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  background: #f0f1f8;
+  padding: 0 20px;
+  margin-bottom: 2px;
+  height: 50px;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.button {
+  margin-top: 20px;
+  display: inline-block;
+  color: #fff;
+  font-size: 18px;
+  background: #3e2093;
+  outline: none;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 7px;
+}
+.button:hover {
+  background: rgb(0, 0, 207);
+}
+label {
+  font-size: 20px;
+  color: #afafb6;
+  padding-left: 5px;
+}
+
+.header {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  color: #3e2093;
+  margin-bottom: 10px;
+}
+p{
+font-size: 15px;
+font-weight: 400;
+color: gray;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+             <div class="header">
+                 <h1>Заполните заявку</h1>
+                 <p>Наш менеджер свяжется с Вами :)</p>
+             </div>
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p}}
+                <div class = "input-box">
+                    <input class="button" type="submit" >
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
